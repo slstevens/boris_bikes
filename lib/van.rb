@@ -3,9 +3,10 @@ require_relative 'bike_container'
 class Van
 
 	include BikeContainer
-
-	def broken_bikes
-		bikes.select { |bike| bike.broken?}
+	def collect_bikes(station)
+		station.broken_bikes.each do |bike|
+			dock(bike)
+			station.release(bike)
+		end
 	end
-
 end
