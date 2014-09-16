@@ -18,7 +18,7 @@ describe Van do
 	end
 
 	#should dock in van fixed bikes from garage
-
+=begin
 	it "should collect fixed bikes from garage" do
 		van = Van.new
 		garage = Garage.new
@@ -27,6 +27,8 @@ describe Van do
 		van.dock(bike)
 		van.dock(broken_bike)
 		expect(van.broken_bikes).to eq ([broken_bike])
-	end
+		end
+This isn't correct because the broken bikes that the van docks is not the same as the number it will collect (necessarily)
+=end
 end
 
