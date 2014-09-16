@@ -1,6 +1,7 @@
 # link to the Docking Station class
 require 'docking_station'
 require 'bike'
+require 'bike_container'
 require 'spec_helper.rb'
 
 describe DockingStation do
