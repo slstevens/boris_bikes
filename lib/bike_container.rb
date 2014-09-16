@@ -15,11 +15,11 @@ module BikeContainer
 	end
 
 	def bike_count
-		bikes.bike_count
+		bikes.count
 	end
 
 	def dock(bike)
-		raise "Station is full" if full
+		raise "Station is full" if full?
 		bikes << bike
 	end
 
