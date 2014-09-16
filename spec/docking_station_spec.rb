@@ -1,12 +1,13 @@
 # link to the Docking Station class
 require 'docking_station'
 require 'bike'
+require 'spec_helper.rb'
 
 describe DockingStation do
 
 	let(:bike) {Bike.new} 
 	let(:station) { DockingStation.new(:capacity => 20) }
-
+	
 	def fill_station(station)
 		20.times { station.dock(Bike.new) }
 	end

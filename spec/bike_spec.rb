@@ -1,5 +1,6 @@
 # link to the Bike class
 require 'bike'
+require 'spec_helper.rb'
 
 # we're describing the functionality of a specific class, Bike
 describe Bike do
