@@ -1,5 +1,3 @@
-require_relative 'bike_container'
-
 class Person
 
 	def rent_bike_from(station)
@@ -13,4 +11,9 @@ class Person
 	def return_bike_to(station)
 		station.available_bikes<<@bike
 	end
+
+	def crash(bike)
+		@bike.break!
+	end
+
 end
