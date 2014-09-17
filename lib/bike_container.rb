@@ -19,11 +19,12 @@ module BikeContainer
 	end
 
 	def dock(bike)
-		raise "No more room for books" if full?
+		raise "No more room for bikes" if full?
 		bikes << bike
 	end
 
 	def release(bike)
+		raise "No bikes to release" if bike_count == 0
 		bikes.delete(bike)
 	end
 
