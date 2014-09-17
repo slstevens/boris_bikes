@@ -3,7 +3,7 @@ require 'bike'
 require 'garage'
 require 'spec_helper'
 
-describe Van do 
+describe Garage do 
 
 	let(:bike)        { Bike.new }
 	let(:broken_bike) { Bike.new.break! }
