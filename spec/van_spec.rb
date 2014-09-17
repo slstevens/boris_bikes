@@ -6,19 +6,33 @@ require 'spec_helper.rb'
 
 describe Van do 
 
+	let(:bike)        { Bike.new }
+	let(:broken_bike) { Bike.new.break! }
+	let(:van)         { Van.new }
+	let(:station)     { DockingStation.new }
+	let(:garage)      { Garage.new }
+
+
 	it "should collect broken bikes from docking station" do
-		van = Van.new
-		station = DockingStation.new
-		bike = Bike.new
-		broken_bike = Bike.new.break!
 		station.dock(bike)
 		station.dock(broken_bike)
-		expect(van.collect_bikes(station)).to eq ([broken_bike])
-		expect(station.broken_bikes).to eq ([])
+		van.collect_broken_bikes_from(station)
+		expect(van.bikes).to eq ([broken_bike])
+		expect(station.broken_bikes).to eq ([]) #i don't think this is needed
 	end
 
-	#should dock in van fixed bikes from garage
+
+	it "should drop broken bikes at garage" do
+		van.dock(broken_bike)
+		expect(van.bikes).to eq ([broken_bike])
+		van.drop_broken_bikes_at(garage)
+		expect(van.broken_bikes).to eq []
+		expect(garage.bikes).to eq [broken_bike]
+	end
 =begin
+
+	#should dock in van fixed bikes from garage
+
 	it "should collect fixed bikes from garage" do
 		van = Van.new
 		garage = Garage.new
