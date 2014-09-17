@@ -29,6 +29,21 @@ describe Van do
 		expect(van.broken_bikes).to eq []
 		expect(garage.bikes).to eq [broken_bike]
 	end
+
+	it "should collect fixed bikes from garage" do
+		garage.dock(broken_bike)
+		garage.dock(bike)
+		van.collect_fixed_bikes_from(garage)
+		expect(van.bikes).to eq([bike])
+	end
+
+	it "should drop fixed biked at docking station" do
+		van.dock(bike)
+		expect(van.bikes).to eq ([bike])
+		van.drop_fixed_bikes_at(station)
+		expect(van.bikes).to eq []
+		expect(station.bikes).to eq [bike]
+	end
 =begin
 
 	#should dock in van fixed bikes from garage

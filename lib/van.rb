@@ -10,13 +10,25 @@ class Van
 		end
 	end
 
-#collect_fixed_bikes(garage)
+	def collect_fixed_bikes_from(garage)
+		garage.available_bikes.each do |bike|
+			dock(bike)
+			garage.release(bike)
+		end
+	end
 
-#drop_fixed_bikes(station)
 	def drop_broken_bikes_at(garage)
 		self.broken_bikes.each do |bike|
 			garage.dock(bike)
 			self.release(bike)
 		end
 	end
+
+	def drop_fixed_bikes_at(station)
+		available_bikes.each do |bike|
+			station.dock(bike)
+			release(bike)
+		end
+	end
+
 end
