@@ -23,9 +23,14 @@ module BikeContainer
 		bikes << bike
 	end
 
-	def release(bike)
-		raise "No bikes to release" if bike_count == 0
-		bikes.delete(bike)
+	def release_available
+		raise "No available bikes to release" if bike_count == 0
+		bikes.delete(available_bikes.pop)
+	end
+
+	def release_broken
+		raise "No broken bikes to release" if bike_count == 0
+		bikes.delete(broken_bikes.pop)
 	end
 
 	def full?

@@ -16,6 +16,8 @@ describe Person do
 
 	it "should be able to return a bike" do
 		station.dock(bike)
+		person.rent_bike_from(station)
+		expect(person.has_bike?).to eq true
 		person.return_bike_to(station)
 		expect(person.has_bike?).to eq false
 	end
@@ -23,7 +25,7 @@ describe Person do
 	it "should be able to break a bike" do
 		station.dock(bike)
 		person.rent_bike_from(station)
-		person.crash(bike)
+		person.crash
 		expect(bike.broken?).to eq true
 	end
 

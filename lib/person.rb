@@ -1,7 +1,7 @@
 class Person
 
 	def rent_bike_from(station)
-		@bike = station.available_bikes.pop
+		@bike = station.release_available
 	end
 
 	def has_bike?
@@ -9,10 +9,11 @@ class Person
 	end
 
 	def return_bike_to(station)
-		station.available_bikes<<@bike
+		station.bikes<<@bike
+		@bike = nil
 	end
 
-	def crash(bike)
+	def crash
 		@bike.break!
 	end
 
